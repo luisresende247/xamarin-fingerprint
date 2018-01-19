@@ -10,6 +10,14 @@
         /// </summary>
         Available,
         /// <summary>
+        /// Touch ID is available to be used.
+        /// </summary>
+        AvailableTouchID,
+        /// <summary>
+        /// Face ID is available to be used.
+        /// </summary>
+        AvailableFaceID,
+        /// <summary>
         /// This plugin has no implementation for the current platform.
         /// </summary>
         NoImplementation,

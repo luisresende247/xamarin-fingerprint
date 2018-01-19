@@ -90,7 +90,7 @@ namespace Plugin.Fingerprint.Samsung
             return false;
         }
 
-        public override async Task<FingerprintAvailability> GetAvailabilityAsync(bool allowAlternativeAuthentication = false)
+        public override async Task<FingerprintAvailability> GetAvailabilityAsync(bool allowAlternativeAuthentication = false, bool getAvailabilityType = false)
         {
             if (_hasNoApi)
                 return FingerprintAvailability.NoApi;

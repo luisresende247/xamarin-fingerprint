@@ -23,7 +23,7 @@ namespace Plugin.Fingerprint.Abstractions
             return await GetAvailabilityAsync(allowAlternativeAuthentication) == FingerprintAvailability.Available;
         }
 
-        public abstract Task<FingerprintAvailability> GetAvailabilityAsync(bool allowAlternativeAuthentication = false);
+        public abstract Task<FingerprintAvailability> GetAvailabilityAsync(bool allowAlternativeAuthentication = false, bool getAvailabilityType = false);
         protected abstract Task<FingerprintAuthenticationResult> NativeAuthenticateAsync(AuthenticationRequestConfiguration authRequestConfig, CancellationToken cancellationToken);
     }
 }

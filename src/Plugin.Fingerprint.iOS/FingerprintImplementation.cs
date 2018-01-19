@@ -54,7 +54,7 @@ namespace Plugin.Fingerprint
             return result;
         }
 
-        public override async Task<FingerprintAvailability> GetAvailabilityAsync(bool allowAlternativeAuthentication = false)
+        public override async Task<FingerprintAvailability> GetAvailabilityAsync(bool allowAlternativeAuthentication = false, bool getAvailabilityType = false)
         {
             NSError error;
 
@@ -64,6 +64,16 @@ namespace Plugin.Fingerprint
             var policy = GetPolicy(allowAlternativeAuthentication);
             if (_context.CanEvaluatePolicy(policy, out error))
                 return FingerprintAvailability.Available;
+            {
+                if (getAvailabilityType)
+                {
+                    return _context.BiometryType == LABiometryType.TouchId ? FingerprintAvailability.AvailableTouchID : FingerprintAvailability.AvailableFaceID;
+                }
+                else
+                {
+                    return FingerprintAvailability.Available;
+                }
+            }
 
             switch ((LAStatus)(int)error.Code)
             {

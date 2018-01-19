@@ -20,7 +20,12 @@ namespace Plugin.Fingerprint.Abstractions
         /// Supported Platforms: iOS, Mac
         /// Default: false
         /// </param>
-        Task<FingerprintAvailability> GetAvailabilityAsync(bool allowAlternativeAuthentication = false);
+        /// /// <param name="getAvailabilityType">
+        /// If Biometric authentication is available returns the type used by the device.
+        /// Supported Platforms: iOS, Mac
+        /// Default: false
+        /// </param>
+        Task<FingerprintAvailability> GetAvailabilityAsync(bool allowAlternativeAuthentication = false, bool getAvailabilityType = false);
 
         /// <summary>
         /// Checks if <see cref="GetAvailabilityAsync"/> returns <see cref="FingerprintAvailability.Available"/>.
