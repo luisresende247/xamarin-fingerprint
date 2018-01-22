@@ -63,7 +63,6 @@ namespace Plugin.Fingerprint
 
             var policy = GetPolicy(allowAlternativeAuthentication);
             if (_context.CanEvaluatePolicy(policy, out error))
-                return FingerprintAvailability.Available;
             {
                 if (getAvailabilityType)
                 {
