@@ -64,7 +64,7 @@ namespace Plugin.Fingerprint
             var policy = GetPolicy(allowAlternativeAuthentication);
             if (_context.CanEvaluatePolicy(policy, out error))
             {
-                if (getAvailabilityType)
+                if (getAvailabilityType && UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
                 {
                     return _context.BiometryType == LABiometryType.TouchId ? FingerprintAvailability.AvailableTouchID : FingerprintAvailability.AvailableFaceID;
                 }
